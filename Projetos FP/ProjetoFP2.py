@@ -163,13 +163,7 @@ def cria_mapa (d, w, e1, e2):
 
 def cria_copia_mapa (m):
     """Esta funcao cria uma copia do mapa dado como argumento"""
-    ex1 = ()
-    ex2 = ()
-    for un in m["ex1"]:
-        ex1 += (cria_copia_unidade(un),)
-    for un in m["ex2"]:
-        ex2 += (cria_copia_unidade(un),)
-    m1 = {"dim": m["dim"], "prd": m["prd"], "ex1": ex1, "ex2": ex2}
+    m1 = dict(m)
     return m1
 
 #Seletores
@@ -420,7 +414,7 @@ def simula_batalha (config, bool):
         print("[", str(ex1_nome) + ":"+str(calcula_pontos(mapa,ex1_nome)), str(ex2_nome) + ":"+str(calcula_pontos(mapa,ex2_nome)), "]")
     turno (mapa,ex1_nome,ex2_nome)
     mapa_ant = cria_copia_mapa(mapa)
-    while calcula_pontos(mapa,ex1_nome) > 0 and calcula_pontos(mapa,ex2_nome) > 0 and not mapas_iguais(mapa_ant, mapa):
+    while calcula_pontos(mapa,ex1_nome) > 0 and calcula_pontos(mapa,ex2_nome) > 0 and not mapas_iguais(mapa_ant, simula_turno(mapa)):
         if bool:
             turno(mapa, ex1_nome, ex2_nome)
         mapa_ant = cria_copia_mapa(mapa)
@@ -432,4 +426,4 @@ def simula_batalha (config, bool):
         print ("EMPATE")
     else:
         turno(mapa, ex1_nome, ex2_nome)
-        print ("EMPATE")    
+        print ("EMPATE") 
