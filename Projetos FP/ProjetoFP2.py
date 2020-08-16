@@ -420,7 +420,7 @@ def simula_batalha (config, bool):
         print("[", str(ex1_nome) + ":"+str(calcula_pontos(mapa,ex1_nome)), str(ex2_nome) + ":"+str(calcula_pontos(mapa,ex2_nome)), "]")
     turno (mapa,ex1_nome,ex2_nome)
     mapa_ant = cria_copia_mapa(mapa)
-    while calcula_pontos(mapa,ex1_nome) > 0 and calcula_pontos(mapa,ex2_nome) > 0 and not mapas_iguais(mapa_ant, simula_turno(mapa)):
+    while calcula_pontos(mapa,ex1_nome) > 0 and calcula_pontos(mapa,ex2_nome) > 0 and not mapas_iguais(mapa_ant, mapa):
         if bool:
             turno(mapa, ex1_nome, ex2_nome)
         mapa_ant = cria_copia_mapa(mapa)
