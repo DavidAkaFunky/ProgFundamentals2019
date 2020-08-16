@@ -29,4 +29,4 @@ class urna:
                 vencedor = cand
                 votos_vencedor = self.res[cand]
             print (str(cand) + ": " + str(self.res[cand]))
-        print ("Vencedor: " + str(vencedor))
+        print ("Vencedor: " + str(vencedor)) 
